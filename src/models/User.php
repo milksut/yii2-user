@@ -83,7 +83,6 @@ class User extends ActiveRecord implements IdentityInterface
             ['sms_verified', 'default', 'value' => self::SMS_NOT_VERIFY],
             ['sms_verified', 'integer'],
             ['sms_verified', 'in', 'range' => [self::SMS_VERIFY, self::SMS_NOT_VERIFY]],
-            ['sms_verified', 'unsafe'],
             ['id_avatar', 'integer'],
             ['is_virtual', 'default', 'value' => self::IS_VIRTUAL_FALSE],
             ['is_virtual', 'in', 'range' => [self::IS_VIRTUAL_FALSE, self::IS_VIRTUAL_TRUE]],
