@@ -344,7 +344,10 @@ class User extends ActiveRecord implements IdentityInterface
         $this->sms_verified = self::SMS_VERIFY;
 
         try {
-            return $this->save(false, ['tel_no', 'sms_verified']);
+            if($this->validate(['tel_no'])) 
+            {
+                return $this->save(false, ['tel_no', 'sms_verified']);
+            }
         } finally {
             $this->_smsVerificationConfirmed = false;
         }
